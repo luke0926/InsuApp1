@@ -1,0 +1,100 @@
+﻿@model InsuApp1.Models.UserInsuredEvent
+@using InsuApp1.Models
+
+@{
+    ViewBag.Title = "User Insured Event";
+}
+
+<div class="modal fade" id="addEmployee">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Personal Insured Event</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            @if (User.IsInRole("admin"))
+            {
+                <div class="modal-body">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <form asp-action="EditUserInsuredEvent">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserInsuredEventId" />
+                        <div class="form-group">
+                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Insured Event Name</label>
+                            <select asp-for="InsuredEventName" class="form-control" asp-items="ViewBag.MainInsuredEvent"></select>
+                            <span asp-validation-for="InsuredEventName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Event Value</label>
+                            <input asp-for="InsuredEventValue" class="form-control" />
+                            <span asp-validation-for="InsuredEventValue" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Object of Insured Event</label>
+                            <input asp-for="ObjectOfInsuredEvent" class="form-control" />
+                            <span asp-validation-for="ObjectOfInsuredEvent" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="InsuredEventDate" class="control-label fw-bold text-secondary">Event Date</label>
+                            <input asp-for="InsuredEventDate" class="form-control" />
+                            <span asp-validation-for="InsuredEventDate" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-save="modal">Update</button>
+                </div>
+
+            }
+            else
+            {
+                <div class="modal-body">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <form asp-action="EditUserInsuredEvent">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserInsuredEventId" />
+                        <div class="form-group">
+                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Insured Event Name</label>
+                            <select asp-for="InsuredEventName" class="form-control" asp-items="ViewBag.MainInsuredEvent" disabled></select>
+                            <span asp-validation-for="InsuredEventName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Event Value</label>
+                            <input asp-for="InsuredEventValue" class="form-control" readonly />
+                            <span asp-validation-for="InsuredEventValue" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Object of Insured Event</label>
+                            <input asp-for="ObjectOfInsuredEvent" class="form-control" readonly />
+                            <span asp-validation-for="ObjectOfInsuredEvent" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="InsuredEventDate" class="control-label fw-bold text-secondary">Event Date</label>
+                            <input asp-for="InsuredEventDate" class="form-control" readonly />
+                            <span asp-validation-for="InsuredEventDate" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-save="modal" disabled>Update</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!--<a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-close" arial-label="Close"></a>-->
+
+<script type="text/javascript">
+    $(document).on('click', '#backLink', function () {
+        history.go(-1);
+    });
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

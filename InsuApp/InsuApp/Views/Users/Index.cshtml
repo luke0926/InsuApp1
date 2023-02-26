@@ -1,0 +1,98 @@
+﻿@using InsuApp1.Data.Enum;
+@using X.PagedList.Mvc.Bootstrap4.Core;
+@using X.PagedList.Mvc.Core;
+@using InsuApp1.Models;
+@using InsuApp1.Controllers;
+@using X.PagedList.Web.Common;
+@model X.PagedList.IPagedList<User>
+
+@{
+    ViewData["Title"] = "Clients List";
+}
+
+<link rel="stylesheet" href="~/css/userList.css" runat="server" type="text/css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+
+<div id="modal-placeholder"></div>
+
+@if (TempData["AlertMessage"] != null)
+{
+	
+	<div class="container mt-3 d-flex justify-content-center">
+		<div class="alert alert-success p-1" style="display:inline-block;">
+			<strong><i class="fa fa-check-circle d-lg-table-row" aria-hidden="true"></i></strong>  @TempData["AlertMessage"]
+			<!--<button type="button" style="background-color:transparent; border:none;" class="close" data-bs-dismiss="alert"><i class="fa fa-times alert-success d-block justify-content-end" aria-hidden="true"></i></button>-->
+		</div>
+	</div>
+}
+
+<div class="container mt-4 d-flex justify-content-center">
+	<button type="button" class="btn btn-secondary" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action("Create")"><i class="fa fa-user-plus fa text-white-50 px-3" aria-hidden="true"></i></button>
+</div>
+
+<div class="container mt-4">
+	<div class="row justify-content-center">
+		<div class="col-lg-10">
+			<div class="main-box clearfix">
+				<div class="table-responsive">
+					<table class="table table-curved user-list">
+						<thead>
+							<tr>
+								<th><span class="text-secondary fw-bold">Name</span></th>
+                                <th></th>
+								<th><span class="text-secondary fw-bold">Status</span></th>
+								<th><span class="text-secondary fw-bold">Email</span></th>
+								<th class="text-center"><span class="text-secondary fw-bold">Action</span></th>
+							</tr>
+						</thead>
+						<tbody>
+                            @foreach (var item in Model)
+                            {
+								<tr class="tr">
+									<td>
+										<img src="/images/blankProfilePic.png" alt="">
+										<h5 class="mb-0"><a>@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</a></h5>
+											<ul class="list-unstyled">
+											<li class="text-secondary"><i class="fas fa-map-marker-alt pr-1"></i> @Html.DisplayFor(modelItem => item.StreetAddress), @Html.DisplayFor(modelItem => item.City)</li>
+											</ul>
+									</td>
+									<td>
+									
+									</td>
+									@if(item.UserCategory == UserCategory.Pojištěněc)
+									{
+										<td>
+											<span class="badge badge-soft-succes mb-0">@Html.DisplayFor(modelItem => item.UserCategory)</span>
+										</td>
+									}
+									else
+									{
+										<td>
+											<span class="badge2 badge-soft-succes mb-0">@Html.DisplayFor(modelItem => item.UserCategory)</span>
+										</td>
+									}
+									<td>
+										<a><i class="fa fa-envelope" aria-hidden="true" style="color:gray"></i></a>
+										<a>@Html.DisplayFor(modelItem => item.EmailAddress)</a>
+									</td>
+									<td>
+										<div class="d-flex justify-content-center">
+											<a href="/Users/Details/@item.UserId" class="btn px-1" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-id-card" style="color:dimgrey"></i></a>
+											<button type="button" style="background-color:transparent; border:none" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"Delete/{item.UserId}")"><i class="far fa-trash-alt" style="color:#d81b60"></i></button>
+											<button type="button" style="background-color:transparent; border:none" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"Edit/{item.UserId}")"><i class="fas fa-user-edit" style="color:dimgrey"></i></button>
+										</div>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				                @Html.PagedListPager(Model,
+				                page => Url.Action("Index", new { page }),Bootstrap4PagedListRenderOptions.ClassicPlusFirstAndLast)
+				</div>
+	        </div>
+		</div>
+	</div>
+</div>
+
+

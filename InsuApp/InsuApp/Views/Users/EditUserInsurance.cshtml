@@ -1,0 +1,112 @@
+﻿@model InsuApp1.Models.UserInsurance
+@using InsuApp1.Models
+
+
+@{
+    ViewBag.Title = "User Insurance";
+}
+
+<link rel="stylesheet" href="~/css/scrollsheet.css" runat="server" type="text/css" asp-append-version="true" />
+
+<div class="modal fade" id="addEmployee">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Personal Insurance</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            @if (User.IsInRole("admin"))
+            {
+                <div class="modal-body">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <form asp-action="EditUserInsurance">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserInsuranceId" />
+                        <div class="form-group">
+                            <label asp-for="InsuranceName" class="control-label fw-bold text-secondary">Insurance Type</label>
+                            <select asp-for="InsuranceName" class="form-control" asp-items="ViewBag.MainInsurance"></select>
+                            <span asp-validation-for="InsuranceName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InsuranceValue" class="control-label fw-bold text-secondary">Insurance Value</label>
+                            <input asp-for="InsuranceValue" class="form-control" />
+                            <span asp-validation-for="InsuranceValue" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="ObjectOfInsurance" class="control-label fw-bold text-secondary">Object of Insurance</label>
+                            <input asp-for="ObjectOfInsurance" class="form-control" />
+                            <span asp-validation-for="ObjectOfInsurance" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="InsuranceValidFrom" class="control-label fw-bold text-secondary">Valid From</label>
+                            <input asp-for="InsuranceValidFrom" class="form-control" />
+                            <span asp-validation-for="InsuranceValidFrom" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="InsuranceValidTo" class="control-label fw-bold text-secondary">Valid To</label>
+                            <input asp-for="InsuranceValidTo" class="form-control" />
+                            <span asp-validation-for="InsuranceValidTo" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-save="modal">Update</button>
+                </div>
+
+            }
+            else
+            {
+                <div class="modal-body">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <form asp-action="EditUserInsurance">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserInsuranceId" />
+                        <div class="form-group">
+                            <label asp-for="InsuranceName" class="control-label fw-bold text-secondary">Insurance Type</label>
+                            <select asp-for="InsuranceName" class="form-control" asp-items="ViewBag.MainInsurance" disabled></select>
+                            <span asp-validation-for="InsuranceName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="InsuranceValue" class="control-label fw-bold text-secondary">Insurance Value</label>
+                            <input asp-for="InsuranceValue" class="form-control" readonly />
+                            <span asp-validation-for="InsuranceValue" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="ObjectOfInsurance" class="control-label fw-bold text-secondary">Object of Insurance</label>
+                            <input asp-for="ObjectOfInsurance" class="form-control" readonly />
+                            <span asp-validation-for="ObjectOfInsurance" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="InsuranceValidFrom" class="control-label fw-bold text-secondary">Valid From</label>
+                            <input asp-for="InsuranceValidFrom" class="form-control" readonly />
+                            <span asp-validation-for="InsuranceValidFrom" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="InsuranceValidTo" class="control-label fw-bold text-secondary">Valid To</label>
+                            <input asp-for="InsuranceValidTo" class="form-control" readonly />
+                            <span asp-validation-for="InsuranceValidTo" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-save="modal" disabled>Update</button>
+                </div>
+            }
+        </div>
+   </div>
+</div>
+
+<!--<a href="javascript:void(0);" onclick="history.go(-1);" class="btn btn-close" arial-label="Close"></a>-->
+
+<script type="text/javascript">
+    $(document).on('click', '#backLink', function () {
+        history.go(-1);
+    });
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

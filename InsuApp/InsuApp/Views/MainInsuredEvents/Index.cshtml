@@ -1,0 +1,55 @@
+﻿@model IEnumerable<InsuApp1.Models.MainInsuredEvent>
+@using InsuApp1.Models;
+@using InsuApp1.Controllers;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/insuranceList.css" runat="server" type="text/css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+<div id="modal-placeholder"></div>
+
+@if (TempData["AlertMessage"] != null)
+{
+	
+	<div class="container mt-3 d-flex justify-content-center">
+		<div class="alert alert-success p-1" style="display:inline-block;">
+			<strong><i class="fa fa-check-circle d-lg-table-row" aria-hidden="true"></i></strong>  @TempData["AlertMessage"]
+			<!--<button type="button" style="background-color:transparent; border:none;" class="close" data-bs-dismiss="alert"><i class="fa fa-times alert-success d-block justify-content-end" aria-hidden="true"></i></button>-->
+		</div>
+	</div>
+}
+
+<div class="container mt-4 d-flex justify-content-center">
+	<button type="button" class="btn btn-secondary" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action("Create")"><i class="fa fa-plus fa text-white-50 px-3" aria-hidden="true"></i></button>
+</div>
+
+<div class="container mt-5">
+	<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+		@foreach (var item in Model)
+		{
+			<div class="col">
+				<div class="card radius-10 border-start border-0 border-3 border-info">
+					<div class="card-body">
+						<div class="d-flex align-items-center">
+							<div>
+                                <p class="mb-0 text-secondary fw-light">Insured Event</p>
+                                <h6 class="my-1 text-secondary">@Html.DisplayFor(modelItem => item.MainInsuredEventName)</h6>
+								<p class="mb-0">
+                                    <!--<a href="/MainInsuredEvents/Details/@item.MainInsuredEventId" class="btn px-1" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-id-card" style="color:dimgrey"></i></a>-->
+                                    <button type="button" style="background-color:transparent; border:none" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"Delete/{item.MainInsuredEventId}")"><i class="far fa-trash-alt" style="color:#d81b60"></i></button>
+									<button type="button" style="background-color:transparent; border:none" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"Edit/{item.MainInsuredEventId}")"><i class="fas fa-edit" style="color:dimgrey"></i></button>
+                                </p>
+							</div>
+							<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

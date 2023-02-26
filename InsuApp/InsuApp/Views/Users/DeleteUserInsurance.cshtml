@@ -1,0 +1,31 @@
+﻿@model InsuApp1.Models.UserInsurance
+
+<link rel="stylesheet" href="~/css/deleteAction.css" runat="server" type="text/css" asp-append-version="true" />
+
+<div class="modal fade" id="addEmployee">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addEmployeeLabel"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="DeleteUserInsurance">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="UserInsuranceId" />
+                    <div class="container1 text-secondary">
+                        <h1>Delete Personal Insurance</h1>
+                        <p>Are you sure you want to delete <b>this Insurance</b> ?</p>
+
+                    <div class="clearfix">
+                        <button type="button" class="cancelbtn button1" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="deletebtn button1" data-save="modal">Delete</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

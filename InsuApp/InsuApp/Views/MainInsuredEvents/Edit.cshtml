@@ -1,0 +1,45 @@
+﻿@model InsuApp1.Models.MainInsuredEvent
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="modal fade" id="addEmployee">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Edit Insured Event</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Edit">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.MainInsuredEventId" />
+                        <label asp-for="MainInsuredEventName" class="control-label fw-bold text-secondary">Event Name</label>
+                        <input asp-for="MainInsuredEventName" class="form-control" />
+                        <span asp-validation-for="MainInsuredEventName" class="text-danger"></span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-save="modal">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).on('click', '#backLink', function () {
+        history.go(-1);
+    });
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

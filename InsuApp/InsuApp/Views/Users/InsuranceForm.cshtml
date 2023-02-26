@@ -1,0 +1,80 @@
+﻿@using InsuApp1.Data.Enum;
+@model InsuApp1.Models.UserDetailViewModel
+
+@{
+    ViewData["Title"] = "Client Insurance Creation";
+}
+
+<link rel="stylesheet" href="~/css/scrollsheet.css" runat="server" type="text/css" asp-append-version="true" />
+
+<div id="modal-placeholder"></div>
+
+<div class="modal fade" id="addEmployee">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @if (Model.UserCategory == UserCategory.Pojištěněc)
+                {
+                    <h4 class="modal-title text-secondary" id="addEmployeeLabel">New Insurance for <mark class="badge1 fs-5">@Html.DisplayFor(model => model.UserDetailView.FirstName) @Html.DisplayFor(model => model.UserDetailView.LastName)</mark></h4>
+                }
+                else
+                {
+                    <h4 class="modal-title text-secondary" id="addEmployeeLabel">New Insurance for <mark class="badge2 fs-5">@Html.DisplayFor(model => model.UserDetailView.FirstName) @Html.DisplayFor(model => model.UserDetailView.LastName)</mark></h4>
+                }
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="InsuranceFormCreate">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="UserDetailViewId" value="@Model.UserDetailViewId" />
+                    <div class="form-group">
+                        <label asp-for="MainInsuranceName" class="control-label fw-bold text-secondary">Insurance Name</label>
+                        @Html.DropDownListFor(model => model.MainInsuranceName, Model.MainInsuList, "--Select Insurance--", new { @class = "form-select" })
+                        <span asp-validation-for="MainInsuranceName" class="text-danger"></span>
+
+                        <!--@Html.LabelFor(model => model.MainInsuranceName,"Insurance Name", new { @class = "control-label col-md-2" })-->
+                        <!--@Html.DropDownListFor(model => model.MainInsuranceName, Model.MainInsuList, "<Select Company>", new { @class = "form-control" })-->
+                        <!--<label asp-for="InsuranceName" class="control-label fw-bold text-secondary">Insurance Name</label>
+                        <select asp-for="InsuranceName" class="form-select" aria-label="Default select example" asp-items="ViewBag.MainInsurance">
+                            <option selected disabled>--Select--</option>
+                        </select>
+                        <span asp-validation-for="InsuranceName" class="text-danger"></span>-->
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="InsuranceValue" class="control-label fw-bold text-secondary">Insurance Value</label>
+                        <input asp-for="InsuranceValue" class="form-control" />
+                        <span asp-validation-for="InsuranceValue" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="ObjectOfInsurane" class="control-label fw-bold text-secondary">Object of Insurance</label>
+                        <input asp-for="ObjectOfInsurane" class="form-control" />
+                        <span asp-validation-for="ObjectOfInsurane" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="InsuranceValidFrom" class="control-label fw-bold text-secondary">Valid From</label>
+                        <input asp-for="InsuranceValidFrom" class="form-control" />
+                        <span asp-validation-for="InsuranceValidFrom" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="InsuranceValidTo" class="control-label fw-bold text-secondary">Valid To</label>
+                        <input asp-for="InsuranceValidTo" class="form-control" />
+                        <span asp-validation-for="InsuranceValidTo" class="text-danger"></span>
+                    </div>
+                </form>
+            </div>
+            @if (User.IsInRole("admin"))
+            {
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-save="modal">Save</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

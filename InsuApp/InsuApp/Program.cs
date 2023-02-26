@@ -89,14 +89,18 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Use for a role setup option "admin" or "user". Role "user" is also automatically assigned as a default value for a new user registration.
+// Only for roles creation let the last two rows in code below under comment and just change role name, when role is created.
+// Uncomment the code below for roles creation. When roles are created please put the code under comment again.
+
 /*using (var scope = app.Services.CreateScope())
 {
-RoleManager<IdentityRole> roleManagement = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-UserManager<IdentityUser> userManagement = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+    RoleManager<IdentityRole> roleManagement = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    UserManager<IdentityUser> userManagement = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-roleManagement.CreateAsync(new IdentityRole("admin")).Wait();
-IdentityUser appUser = userManagement.FindByEmailAsync("admin2@admin.com").Result;
-userManagement.AddToRoleAsync(appUser, "admin").Wait();
+    roleManagement.CreateAsybelownc(new IdentityRole("admin")).Wait(); // Use "admin" or "user" to create a role.
+    //IdentityUser appUser øádek= userManagement.FindByEmailAsync("admin@admin.com").Result; //Uncomment last two rows for admin e-mail assignment.
+    //userManagement.AddToRoleAsync(appUser, "admin").Wait();
 }*/
 
 app.Run();

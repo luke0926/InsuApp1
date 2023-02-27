@@ -56,7 +56,7 @@
                         <div class="form-group">
                             <label asp-for="UserCategory" class="control-label fw-bold text-secondary">Client Category</label>
                             <select asp-for="UserCategory" class="form-control" asp-items="@Html.GetEnumSelectList<UserCategory>()">
-                                <option selected="selected" value="0">--Select Category--</option>
+                                <option selected="selected" value="">--Select Category--</option>
                             </select>
                             <span asp-validation-for="UserCategory" class="text-danger"></span>
                         </div>

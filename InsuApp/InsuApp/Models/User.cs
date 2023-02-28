@@ -21,6 +21,7 @@ namespace InsuApp1.Models
         public string? StreetAddress { get; set; }
         public string? City { get; set; }
         public string? PostalCode { get; set; }
+        [Required(ErrorMessage = "User Category is Required")]
         public UserCategory? UserCategory { get; set; }
     }
 }

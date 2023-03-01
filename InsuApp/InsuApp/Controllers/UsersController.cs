@@ -225,24 +225,33 @@ namespace InsuApp1.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                var isEmailAlreadyExists = _context.User.Any(x => x.EmailAddress == user.EmailAddress);
+                if (isEmailAlreadyExists)
                 {
-                    _context.Add(user);
-                    _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Client Created Successfully!";
+                    ModelState.AddModelError("EmailAddress", "User with this email already exists");
+                    return PartialView("Create", user);
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!UserExists(user.UserId))
+                    try
                     {
-                        return NotFound("User Creation Error!");
+                        _context.Add(user);
+                        _context.SaveChangesAsync();
+                        TempData["AlertMessage"] = "Client Created Successfully!";
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!UserExists(user.UserId))
+                        {
+                            return NotFound("User Creation Error!");
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return PartialView("Create", user);
                 }
-                return PartialView("Create", user);
             }
             return PartialView("Create", user);
         }
@@ -325,24 +334,33 @@ namespace InsuApp1.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                var isEmailAlreadyExists = _context.User.Any(x => x.EmailAddress == user.EmailAddress);
+                if (isEmailAlreadyExists)
                 {
-                    _context.User.Update(user);
-                    _context.SaveChanges();
-                    TempData["AlertMessage"] = "Client Updated Successfully!";
+                    ModelState.AddModelError("EmailAddress", "User with this email already exists");
+                    return PartialView("Edit", user);
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!UserExists(user.UserId))
+                    try
                     {
-                        return NotFound("User Edit Error!");
+                        _context.User.Update(user);
+                        _context.SaveChanges();
+                        TempData["AlertMessage"] = "Client Updated Successfully!";
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!UserExists(user.UserId))
+                        {
+                            return NotFound("User Edit Error!");
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return PartialView("Edit", user);
                 }
-                return PartialView("Edit", user);
             }
             return PartialView("Edit", user);
         }

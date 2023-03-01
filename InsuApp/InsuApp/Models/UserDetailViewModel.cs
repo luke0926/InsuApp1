@@ -29,11 +29,11 @@ namespace InsuApp1.Models
         public string? MainInsuranceName { get; set; }
         //public MainInsurance? MainInsurancedw { get; set; }
         [NotMapped]
-        public IEnumerable<SelectListItem>? MainInsuList { get; set; }
+        public virtual IEnumerable<SelectListItem>? MainInsuList { get; set; }
         //User Insured Event Data
         public UserInsuredEvent? UserInsuredEvent { get; set; }
         [NotMapped]
-        public IEnumerable<SelectListItem>? MainInsuEventList { get; set; }
+        public virtual IEnumerable<SelectListItem>? MainInsuEventList { get; set; }
         public List<UserInsuredEvent>? UserInsuredEvents { get; set; }
         public UserCategory? UserCategory { get; set; }
     }

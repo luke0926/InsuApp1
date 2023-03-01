@@ -36,7 +36,6 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
     options.LogoutPath = new PathString("/Account/Logout");
     options.AccessDeniedPath = new PathString("/Account/AccessDenied");
-
 });
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");

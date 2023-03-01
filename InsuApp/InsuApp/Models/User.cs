@@ -1,4 +1,5 @@
 ﻿using InsuApp1.Data.Enum;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

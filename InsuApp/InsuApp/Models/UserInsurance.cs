@@ -11,7 +11,7 @@ namespace InsuApp1.Models
         public string? InsuranceName { get; set; }
         [Display(Name = "Value of Insurance")]
         [Required(ErrorMessage = "Value is Required")]
-        public string? InsuranceValue { get; set; }
+        public int? InsuranceValue { get; set; }
         [Display(Name = "Object of Insurance")]
         [Required(ErrorMessage = "Object is Required")]
         public string? ObjectOfInsurance { get; set; }

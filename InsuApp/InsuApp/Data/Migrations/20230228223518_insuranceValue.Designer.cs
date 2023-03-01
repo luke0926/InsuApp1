@@ -4,6 +4,7 @@ using InsuApp1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InsuApp1.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230228223518_insuranceValue")]
+    partial class insuranceValue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,9 +157,9 @@ namespace InsuApp1.Data.Migrations
                     b.Property<DateTime?>("InsuredEventDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("InsuredEventValue")
+                    b.Property<string>("InsuredEventValue")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MainInsuredEventName")
                         .IsRequired()
@@ -238,9 +241,9 @@ namespace InsuApp1.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("InsuredEventValue")
+                    b.Property<string>("InsuredEventValue")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ObjectOfInsuredEvent")
                         .IsRequired()

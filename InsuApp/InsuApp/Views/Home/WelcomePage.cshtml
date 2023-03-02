@@ -6,16 +6,16 @@
 <body>
     @if (User.IsInRole("admin"))
     {
-            <div class="text-center mt-5">
-            <h1 class="display-4">Welcome to InsuApp</h1>
-            <p>Your account logged in as an Administrator.</p>
-            </div>
+        <div class="text-center mt-5">
+           <h1 class="display-4">Vítej v InsuApp</h1>
+           <p>Byl jsi přihlášen jako administrátor!</p>
+        </div>
     }
     else
     {
-            <div class="text-center mt-5">
-            <h1 class="display-4">Welcome to InsuApp</h1>
-            <p>Your account details will be displayed after registration is complete.</p>
-            </div>
+        <div class="text-center mt-5">
+           <h1 class="display-4">Vítej v InsuApp</h1>
+           <p>Detail tvého účtu bude zobrazen po dokončení jeho registrace!</p>
+        </div>
     }
 </body>

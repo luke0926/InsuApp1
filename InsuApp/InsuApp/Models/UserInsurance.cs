@@ -6,14 +6,14 @@ namespace InsuApp1.Models
     public class UserInsurance
     {
         public int UserInsuranceId { get; set; }
-        [Display(Name = "Name of Insurance")]
-        [Required(ErrorMessage = "Insurance Type is Required")]
+        [Display(Name = "Název pojištění")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public string? InsuranceName { get; set; }
-        [Display(Name = "Value of Insurance")]
-        [Required(ErrorMessage = "Value is Required")]
+        [Display(Name = "Výše pojištění")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public int? InsuranceValue { get; set; }
-        [Display(Name = "Object of Insurance")]
-        [Required(ErrorMessage = "Object is Required")]
+        [Display(Name = "Předmět pojištění")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public string? ObjectOfInsurance { get; set; }
         public DateTime? InsuranceValidFrom { get; set; }
         public DateTime? InsuranceValidTo { get; set; }

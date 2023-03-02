@@ -1,7 +1,5 @@
 ﻿using InsuApp1.Data.Enum;
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InsuApp1.Models
 {
@@ -9,20 +7,23 @@ namespace InsuApp1.Models
     {
         [Required]
         public int UserId { get; set; }
-        [Display(Name = "First Name")]
-        [Required(ErrorMessage = "First Name is Required")]
+        [Display(Name = "Uživatelské jméno")]
+        [Required(ErrorMessage = "Povinný údaj")]
+        public string? UserName { get; set; }
+        [Display(Name = "Jméno")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public string? FirstName { get; set; }
-        [Display(Name = "Last Name")]
-        [Required(ErrorMessage = "Last Name is Required")]
+        [Display(Name = "Příjmení")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public string? LastName { get; set; }
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "Email is Required")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public string? EmailAddress { get; set; }
         public string? PhoneNumber { get; set; }
         public string? StreetAddress { get; set; }
         public string? City { get; set; }
         public string? PostalCode { get; set; }
-        [Required(ErrorMessage = "User Category is Required")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public UserCategory? UserCategory { get; set; }
     }
 }

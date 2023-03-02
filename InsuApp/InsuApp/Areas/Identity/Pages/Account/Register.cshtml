@@ -25,23 +25,28 @@
                                 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                                     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                                     <div class="form-floating mb-3 text-secondary">
+                                        <input asp-for="Input.UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="uživatelské jméno" />
+                                        <label asp-for="Input.UserName">Uživatelské jméno</label>
+                                        <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-floating mb-3 text-secondary">
                                         <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
                                         <label asp-for="Input.Email">Email</label>
                                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                                     </div>
                                     <div class="form-floating mb-3 text-secondary">
-                                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                                        <label asp-for="Input.Password">Password</label>
+                                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="heslo" />
+                                        <label asp-for="Input.Password">Heslo</label>
                                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                                     </div>
                                     <div class="form-floating mb-3 text-secondary">
-                                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                                        <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="heslo" />
+                                        <label asp-for="Input.ConfirmPassword">Potvrzení hesla</label>
                                         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                     </div>
                                     <div>
                                         <!--<button id="login-submit" type="submit" class="w-100 mb-3 btn btn-sm btn-outline-secondary">Sign In</button>-->
-                                        <button id="registerSubmit" type="submit" class="w-100 mt-4 btn btn-sm btn-outline-secondary">Register</button>
+                                        <button id="registerSubmit" type="submit" class="w-100 mt-4 btn btn-sm btn-outline-secondary">Registrovat</button>
                                     </div>
                                 </form>
                             </section>

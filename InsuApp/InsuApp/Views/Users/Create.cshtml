@@ -11,61 +11,66 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Add Client</h4>
+                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Vytvořit účet</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
-               <div class="modal-body">
-                    <form asp-action="Create">
-                        <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
-                        <div class="form-group">
-                            <label asp-for="FirstName" class="control-label fw-bold text-secondary">First Name</label>
-                            <input asp-for="FirstName" class="form-control" />
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="LastName" class="control-label fw-bold text-secondary">Last Name</label>
-                            <input asp-for="LastName" class="form-control" />
-                            <span asp-validation-for="LastName" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="EmailAddress"class="control-label fw-bold text-secondary">Email</label>
-                            <input asp-for="EmailAddress" class="form-control" />
-                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="PhoneNumber" class="control-label fw-bold text-secondary">Phone</label>
-                            <input asp-for="PhoneNumber" class="form-control" />
-                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="StreetAddress" class="control-label fw-bold text-secondary">Street Address</label>
-                            <input asp-for="StreetAddress" class="form-control" />
-                            <span asp-validation-for="StreetAddress" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="City" class="control-label fw-bold text-secondary">City</label>
-                            <input asp-for="City" class="form-control" />
-                            <span asp-validation-for="City" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="PostalCode" class="control-label fw-bold text-secondary">Postal Code</label>
-                            <input asp-for="PostalCode" class="form-control" />
-                            <span asp-validation-for="PostalCode" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="UserCategory" class="control-label fw-bold text-secondary">Client Category</label>
-                            <select asp-for="UserCategory" class="form-control" asp-items="@Html.GetEnumSelectList<UserCategory>()">
-                                <option selected="selected" value="">--Select Category--</option>
-                            </select>
-                            <span asp-validation-for="UserCategory" class="text-danger"></span>
-                        </div>
-                    </form>
-               </div>
-               <div class="modal-footer">
-                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                   <button type="button" class="btn btn-secondary" data-save="modal">Save</button>
-               </div>
+            <div class="modal-body">
+                <form asp-action="Create">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label fw-bold text-secondary">Uživatelské jméno<i style="color:#fe6b60">*</i></label>
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label fw-bold text-secondary">Jméno<i style="color:#fe6b60">*</i></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label fw-bold text-secondary">Příjmení<i style="color:#fe6b60">*</i></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmailAddress" class="control-label fw-bold text-secondary">Email<i style="color:#fe6b60">*</i></label>
+                        <input asp-for="EmailAddress" class="form-control" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label fw-bold text-secondary">Telefon</label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StreetAddress" class="control-label fw-bold text-secondary">Ulice</label>
+                        <input asp-for="StreetAddress" class="form-control" />
+                        <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="City" class="control-label fw-bold text-secondary">Město</label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PostalCode" class="control-label fw-bold text-secondary">PSČ</label>
+                        <input asp-for="PostalCode" class="form-control" />
+                        <span asp-validation-for="PostalCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserCategory" class="control-label fw-bold text-secondary">Kategorie zákazníka<i style="color:#fe6b60">*</i></label>
+                        <select asp-for="UserCategory" class="form-control" asp-items="@Html.GetEnumSelectList<UserCategory>()">
+                            <option selected="selected" value="">--Zvolit kategorii--</option>
+                        </select>
+                        <span asp-validation-for="UserCategory" class="text-danger"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavřít</button>
+                <button type="button" class="btn btn-secondary" data-save="modal">Uložit</button>
+            </div>
         </div>
     </div>
 </div>

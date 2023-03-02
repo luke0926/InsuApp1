@@ -8,7 +8,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Add Insured Event</h4>
+                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Vytvořit pojistnou událost</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
@@ -16,15 +16,15 @@
                 <form asp-action="Create">
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
                     <div class="form-group">
-                        <label asp-for="MainInsuredEventName" class="control-label fw-bold text-secondary">Event Name</label>
+                        <label asp-for="MainInsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události</label>
                         <input asp-for="MainInsuredEventName" class="form-control" />
                         <span asp-validation-for="MainInsuredEventName" class="text-danger"></span>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-secondary" data-save="modal">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavřít</button>
+                <button type="button" class="btn btn-secondary" data-save="modal">Uložit</button>
             </div>
         </div>
     </div>

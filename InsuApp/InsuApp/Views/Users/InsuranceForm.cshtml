@@ -15,11 +15,11 @@
             <div class="modal-header">
                 @if (Model.UserCategory == UserCategory.Pojištěněc)
                 {
-                    <h4 class="modal-title text-secondary" id="addEmployeeLabel">New Insurance for <mark class="badge1 fs-5">@Html.DisplayFor(model => model.UserDetailView.FirstName) @Html.DisplayFor(model => model.UserDetailView.LastName)</mark></h4>
+                    <h4 class="modal-title text-secondary" id="addEmployeeLabel">Pojištění pro <mark class="badge1 fs-5">@Html.DisplayFor(model => model.UserDetailView.FirstName) @Html.DisplayFor(model => model.UserDetailView.LastName)</mark></h4>
                 }
                 else
                 {
-                    <h4 class="modal-title text-secondary" id="addEmployeeLabel">New Insurance for <mark class="badge2 fs-5">@Html.DisplayFor(model => model.UserDetailView.FirstName) @Html.DisplayFor(model => model.UserDetailView.LastName)</mark></h4>
+                    <h4 class="modal-title text-secondary" id="addEmployeeLabel">Pojištění pro <mark class="badge2 fs-5">@Html.DisplayFor(model => model.UserDetailView.FirstName) @Html.DisplayFor(model => model.UserDetailView.LastName)</mark></h4>
                 }
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
@@ -29,8 +29,8 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="UserDetailViewId" value="@Model.UserDetailViewId" />
                     <div class="form-group">
-                        <label asp-for="MainInsuranceName" class="control-label fw-bold text-secondary">Insurance Name</label>
-                        @Html.DropDownListFor(model => model.MainInsuranceName, Model.MainInsuList, "--Select Insurance--", new { @class = "form-select" })
+                        <label asp-for="MainInsuranceName" class="control-label fw-bold text-secondary">Název pojištění</label>
+                        @Html.DropDownListFor(model => model.MainInsuranceName, Model.MainInsuList, "--Zvolit pojištění--", new { @class = "form-select" })
                         <span asp-validation-for="MainInsuranceName" class="text-danger"></span>
 
                         <!--@Html.LabelFor(model => model.MainInsuranceName,"Insurance Name", new { @class = "control-label col-md-2" })-->
@@ -42,22 +42,22 @@
                         <span asp-validation-for="InsuranceName" class="text-danger"></span>-->
                     </div>
                     <div class="form-group">
-                        <label asp-for="InsuranceValue" class="control-label fw-bold text-secondary">Insurance Value</label>
+                        <label asp-for="InsuranceValue" class="control-label fw-bold text-secondary">Výše pojištění</label>
                         <input asp-for="InsuranceValue" class="form-control" />
                         <span asp-validation-for="InsuranceValue" class="text-danger"></span>
                     </div>
                     <div class="col-md-12">
-                        <label asp-for="ObjectOfInsurane" class="control-label fw-bold text-secondary">Object of Insurance</label>
+                        <label asp-for="ObjectOfInsurane" class="control-label fw-bold text-secondary">Předmět pojištění</label>
                         <input asp-for="ObjectOfInsurane" class="form-control" />
                         <span asp-validation-for="ObjectOfInsurane" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label asp-for="InsuranceValidFrom" class="control-label fw-bold text-secondary">Valid From</label>
+                        <label asp-for="InsuranceValidFrom" class="control-label fw-bold text-secondary">Platnost od</label>
                         <input asp-for="InsuranceValidFrom" class="form-control" />
                         <span asp-validation-for="InsuranceValidFrom" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label asp-for="InsuranceValidTo" class="control-label fw-bold text-secondary">Valid To</label>
+                        <label asp-for="InsuranceValidTo" class="control-label fw-bold text-secondary">Platnost do</label>
                         <input asp-for="InsuranceValidTo" class="form-control" />
                         <span asp-validation-for="InsuranceValidTo" class="text-danger"></span>
                     </div>
@@ -66,8 +66,8 @@
             @if (User.IsInRole("admin"))
             {
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary" data-save="modal">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavřít</button>
+                    <button type="button" class="btn btn-secondary" data-save="modal">Uložit</button>
                 </div>
             }
         </div>

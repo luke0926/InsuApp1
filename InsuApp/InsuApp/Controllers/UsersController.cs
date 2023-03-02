@@ -225,10 +225,10 @@ namespace InsuApp1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var isEmailAlreadyExists = _context.User.Any(x => x.EmailAddress == user.EmailAddress);
-                if (isEmailAlreadyExists)
+                var isUserNameExists = _context.User.Any(x => x.UserName == user.UserName);
+                if (isUserNameExists)
                 {
-                    ModelState.AddModelError("EmailAddress", "User with this email already exists");
+                    ModelState.AddModelError("UserName", "User with this user name already exists");
                     return PartialView("Create", user);
                 }
                 else
@@ -334,33 +334,24 @@ namespace InsuApp1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var isEmailAlreadyExists = _context.User.Any(x => x.EmailAddress == user.EmailAddress);
-                if (isEmailAlreadyExists)
+                try
                 {
-                    ModelState.AddModelError("EmailAddress", "User with this email already exists");
-                    return PartialView("Edit", user);
+                    _context.User.Update(user);
+                    _context.SaveChanges();
+                    TempData["AlertMessage"] = "Client Updated Successfully!";
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
-                    try
+                    if (!UserExists(user.UserId))
                     {
-                        _context.User.Update(user);
-                        _context.SaveChanges();
-                        TempData["AlertMessage"] = "Client Updated Successfully!";
+                        return NotFound("User Edit Error!");
                     }
-                    catch (DbUpdateConcurrencyException)
+                    else
                     {
-                        if (!UserExists(user.UserId))
-                        {
-                            return NotFound("User Edit Error!");
-                        }
-                        else
-                        {
-                            throw;
-                        }
+                        throw;
                     }
-                    return PartialView("Edit", user);
                 }
+                return PartialView("Edit", user);
             }
             return PartialView("Edit", user);
         }

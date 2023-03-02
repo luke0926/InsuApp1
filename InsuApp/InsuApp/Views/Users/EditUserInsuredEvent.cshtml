@@ -9,7 +9,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Personal Insured Event</h4>
+                <h4 class="modal-title text-secondary" id="addEmployeeLabel">Aktualizace události</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
@@ -21,30 +21,30 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="UserInsuredEventId" />
                         <div class="form-group">
-                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Insured Event Name</label>
+                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události</label>
                             <select asp-for="InsuredEventName" class="form-control" asp-items="ViewBag.MainInsuredEvent"></select>
                             <span asp-validation-for="InsuredEventName" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Event Value</label>
+                            <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Výše škody</label>
                             <input asp-for="InsuredEventValue" class="form-control" />
                             <span asp-validation-for="InsuredEventValue" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
-                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Object of Insured Event</label>
+                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Předmět události</label>
                             <input asp-for="ObjectOfInsuredEvent" class="form-control" />
                             <span asp-validation-for="ObjectOfInsuredEvent" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label asp-for="InsuredEventDate" class="control-label fw-bold text-secondary">Event Date</label>
+                            <label asp-for="InsuredEventDate" class="control-label fw-bold text-secondary">Datum události</label>
                             <input asp-for="InsuredEventDate" class="form-control" />
                             <span asp-validation-for="InsuredEventDate" class="text-danger"></span>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary" data-save="modal">Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavřít</button>
+                    <button type="button" class="btn btn-secondary" data-save="modal">Uložit</button>
                 </div>
 
             }
@@ -56,30 +56,30 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="UserInsuredEventId" />
                         <div class="form-group">
-                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Insured Event Name</label>
+                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události</label>
                             <select asp-for="InsuredEventName" class="form-control" asp-items="ViewBag.MainInsuredEvent" disabled></select>
                             <span asp-validation-for="InsuredEventName" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Event Value</label>
+                            <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Výše škody</label>
                             <input asp-for="InsuredEventValue" class="form-control" readonly />
                             <span asp-validation-for="InsuredEventValue" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
-                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Object of Insured Event</label>
+                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Předmět události</label>
                             <input asp-for="ObjectOfInsuredEvent" class="form-control" readonly />
                             <span asp-validation-for="ObjectOfInsuredEvent" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label asp-for="InsuredEventDate" class="control-label fw-bold text-secondary">Event Date</label>
+                            <label asp-for="InsuredEventDate" class="control-label fw-bold text-secondary">Datum události</label>
                             <input asp-for="InsuredEventDate" class="form-control" readonly />
                             <span asp-validation-for="InsuredEventDate" class="text-danger"></span>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary" data-save="modal" disabled>Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavřít</button>
+                    <button type="button" class="btn btn-secondary" data-save="modal" disabled>Uložit</button>
                 </div>
             }
         </div>

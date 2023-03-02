@@ -9,11 +9,11 @@ namespace InsuApp1.Models
     {
         //User Insurance Data
         public string? InsuranceName { get; set; }
-        [Display(Name = "Value of Insurance")]
-        [Required(ErrorMessage = "Value is Required")]
+        [Display(Name = "Výše pojištění")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public int? InsuranceValue { get; set; }
-        [Display(Name = "Object of Insurance")]
-        [Required(ErrorMessage = "Object is Required")]
+        [Display(Name = "Předmět pojištění")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public string? ObjectOfInsurane { get; set; }
         public DateTime? InsuranceValidFrom { get; set; }
         public DateTime? InsuranceValidTo { get; set; }
@@ -24,8 +24,8 @@ namespace InsuApp1.Models
         public int UserDetailViewId { get; set; }
         //Main Insurance Data
         //public List<MainInsurance>? MainInsurances { get; set; }
-        [Display(Name = "Name of Insurance")]
-        [Required(ErrorMessage = "Insurance Type id Required")]
+        [Display(Name = "Název pojištění")]
+        [Required(ErrorMessage = "Povinný údaj")]
         public string? MainInsuranceName { get; set; }
         //public MainInsurance? MainInsurancedw { get; set; }
         [NotMapped]

@@ -4,6 +4,7 @@ using InsuApp1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InsuApp1.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230302172505_InsuranceCurrency")]
+    partial class InsuranceCurrency
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,7 +111,7 @@ namespace InsuApp1.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserDetailViewId"));
 
-                    b.Property<int>("InsuranceCurrency")
+                    b.Property<int?>("InsuranceCurrency")
                         .HasColumnType("int");
 
                     b.Property<string>("InsuranceName")
@@ -243,9 +246,6 @@ namespace InsuApp1.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserInsuredEventId"));
-
-                    b.Property<int>("InsuranceCurrency")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("InsuredEventDate")
                         .HasColumnType("datetime2");

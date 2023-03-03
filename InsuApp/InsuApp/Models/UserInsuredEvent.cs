@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using InsuApp1.Data.Enum;
 
 namespace InsuApp1.Models
 {
@@ -16,5 +17,7 @@ namespace InsuApp1.Models
         public string? ObjectOfInsuredEvent { get; set; }
         public DateTime? InsuredEventDate { get; set; }
         public User? UserUserInsuredEvent { get; set; }
+        [Required(ErrorMessage = "Povinný údaj")]
+        public InsuranceCurrency? InsuranceCurrency { get; set; }
     }
 }

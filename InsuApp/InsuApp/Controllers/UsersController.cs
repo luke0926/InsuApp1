@@ -83,7 +83,7 @@ namespace InsuApp1.Controllers
         // POST: Insured Event Form POST Method
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> InsuredEventFormCreate([Bind("UserDetailEventId,MainInsuredEventName,InsuredEventValue,ObjectOfInsuredEvent,InsuredEventDate")] UserDetailViewModelEvent viewModelEvent)
+        public async Task<IActionResult> InsuredEventFormCreate([Bind("UserDetailEventId,MainInsuredEventName,InsuredEventValue,InsuranceCurrency,ObjectOfInsuredEvent,InsuredEventDate")] UserDetailViewModelEvent viewModelEvent)
         {
             if (ModelState.IsValid)
             {
@@ -93,6 +93,7 @@ namespace InsuApp1.Controllers
 
                     userInsuredEvent.InsuredEventName = viewModelEvent.MainInsuredEventName;
                     userInsuredEvent.InsuredEventValue = viewModelEvent.InsuredEventValue;
+                    userInsuredEvent.InsuranceCurrency = viewModelEvent.InsuranceCurrency;
                     userInsuredEvent.ObjectOfInsuredEvent = viewModelEvent.ObjectOfInsuredEvent;
                     userInsuredEvent.InsuredEventDate = viewModelEvent.InsuredEventDate;
 
@@ -152,7 +153,7 @@ namespace InsuApp1.Controllers
         // POST: Insurance Form POST Method
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> InsuranceFormCreate([Bind("UserDetailViewId,MainInsuranceName,InsuranceValue,ObjectOfInsurane,InsuranceValidFrom,InsuranceValidTo")] UserDetailViewModel viewModel)
+        public async Task<IActionResult> InsuranceFormCreate([Bind("UserDetailViewId,MainInsuranceName,InsuranceValue,InsuranceCurrency,ObjectOfInsurane,InsuranceValidFrom,InsuranceValidTo")] UserDetailViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -162,6 +163,7 @@ namespace InsuApp1.Controllers
 
                     userInsurance.InsuranceName = viewModel.MainInsuranceName;
                     userInsurance.InsuranceValue = viewModel.InsuranceValue;
+                    userInsurance.InsuranceCurrency= viewModel.InsuranceCurrency;
                     userInsurance.ObjectOfInsurance = viewModel.ObjectOfInsurane;
                     userInsurance.InsuranceValidFrom = viewModel.InsuranceValidFrom;
                     userInsurance.InsuranceValidTo = viewModel.InsuranceValidTo;
@@ -390,7 +392,7 @@ namespace InsuApp1.Controllers
         //POST: User Insured Event/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditUserInsuredEvent(int id, [Bind("UserInsuredEventId,InsuredEventName,InsuredEventValue,ObjectOfInsuredEvent,InsuredEventDate")] UserInsuredEvent userInsuredEvent)
+        public async Task<IActionResult> EditUserInsuredEvent(int id, [Bind("UserInsuredEventId,InsuredEventName,InsuredEventValue,InsuranceCurrency,ObjectOfInsuredEvent,InsuredEventDate")] UserInsuredEvent userInsuredEvent)
         {
             if (id != userInsuredEvent.UserInsuredEventId)
             {
@@ -420,7 +422,7 @@ namespace InsuApp1.Controllers
         //POST: UserInsurance/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditUserInsurance(int id, [Bind("UserInsuranceId,InsuranceName,InsuranceValue,ObjectOfInsurance,InsuranceValidFrom,InsuranceValidTo")] UserInsurance userInsurance)
+        public async Task<IActionResult> EditUserInsurance(int id, [Bind("UserInsuranceId,InsuranceName,InsuranceValue,InsuranceCurrency,ObjectOfInsurance,InsuranceValidFrom,InsuranceValidTo")] UserInsurance userInsurance)
         {
             if (id != userInsurance.UserInsuranceId)
             {

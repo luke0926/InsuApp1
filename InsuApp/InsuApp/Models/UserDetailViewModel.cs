@@ -36,5 +36,7 @@ namespace InsuApp1.Models
         public virtual IEnumerable<SelectListItem>? MainInsuEventList { get; set; }
         public List<UserInsuredEvent>? UserInsuredEvents { get; set; }
         public UserCategory? UserCategory { get; set; }
+        [Required(ErrorMessage = "Povinný údaj")]
+        public InsuranceCurrency? InsuranceCurrency { get; set; }
     }
 }

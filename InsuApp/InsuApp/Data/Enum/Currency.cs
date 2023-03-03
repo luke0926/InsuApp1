@@ -1,6 +1,6 @@
 ﻿namespace InsuApp1.Data.Enum
 {
-    public enum Currency
+    public enum InsuranceCurrency
     {
         CZK = 1,
         EUR = 2,

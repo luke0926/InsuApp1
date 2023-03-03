@@ -43,14 +43,14 @@
                             <h4 class="card-title">@Html.DisplayFor(model => model.UserDetailView.FirstName) @Html.DisplayFor(model => model.UserDetailView.LastName)</h4>
                             @if (Model.UserDetailView.UserCategory == UserCategory.Pojištěněc)
                             {
-                                <span class="badge badge-soft-succes mb-0">@Html.DisplayFor(model => model.UserDetailView.UserCategory)</span>
+                               <span class="badge badge-soft-succes mb-0">@Html.DisplayFor(model => model.UserDetailView.UserCategory)</span>
                             }
                             else
                             {
-                                <span class="badge2 badge-soft-succes mb-0">@Html.DisplayFor(model => model.UserDetailView.UserCategory)</span>
+                               <span class="badge2 badge-soft-succes mb-0">@Html.DisplayFor(model => model.UserDetailView.UserCategory)</span>
                             }
                         </div>
-                            <div class="mt-3">
+                        <div class="mt-3">
                             <p class="text-muted font-size-sm fw-light"><i class="fas fa-phone-alt font-size-15 align-middle pe-2 text-secondary"></i>@Html.DisplayFor(model => model.UserDetailView.PhoneNumber)</p>
                             <p class="text-muted font-size-sm fw-light"><i class="fas fa-envelope font-size-15 align-middle pe-2 text-secondary"></i>@Html.DisplayFor(model => model.UserDetailView.EmailAddress)</p>
                             <p class="text-muted font-size-sm fw-light"><i class="fas fa-home font-size-15 align-middle pe-2 text-secondary"></i>@Html.DisplayFor(model => model.UserDetailView.StreetAddress)</p>
@@ -108,6 +108,7 @@
                                                         </td>
                                                         <td class="col-sm-4">
                                                             @Html.DisplayFor(modelItem => item.InsuranceValue)
+                                                            @Html.DisplayFor(modelItem => item.InsuranceCurrency)
                                                         </td>
                                                         <td class="col-sm-4 px-3">
                                                             <div class="d-flex justify-content-end">
@@ -180,6 +181,7 @@
                                                         </td>
                                                         <td class="col-sm-4">
                                                             @Html.DisplayFor(modelItem => item.InsuredEventValue)
+                                                            @Html.DisplayFor(modelItem => item.InsuranceCurrency)
                                                         </td>
                                                         <td class="col-sm-4 px-3">
                                                             <div class="d-flex justify-content-end">

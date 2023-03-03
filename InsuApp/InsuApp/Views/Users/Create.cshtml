@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label asp-for="UserCategory" class="control-label fw-bold text-secondary">Kategorie zákazníka<i style="color:#fe6b60">*</i></label>
                         <select asp-for="UserCategory" class="form-control" asp-items="@Html.GetEnumSelectList<UserCategory>()">
-                            <option selected="selected" value="">--Zvolit kategorii--</option>
+                            <option selected="selected" value="">--Vybrat--</option>
                         </select>
                         <span asp-validation-for="UserCategory" class="text-danger"></span>
                     </div>

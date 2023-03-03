@@ -1,4 +1,5 @@
 ﻿@model InsuApp1.Models.UserInsuredEvent
+@using InsuApp1.Data.Enum;
 @using InsuApp1.Models
 
 @{
@@ -21,17 +22,26 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="UserInsuredEventId" />
                         <div class="form-group">
-                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události</label>
+                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události<i style="color:#fe6b60">*</i></label>
                             <select asp-for="InsuredEventName" class="form-control" asp-items="ViewBag.MainInsuredEvent"></select>
                             <span asp-validation-for="InsuredEventName" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Výše škody</label>
-                            <input asp-for="InsuredEventValue" class="form-control" />
-                            <span asp-validation-for="InsuredEventValue" class="text-danger"></span>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Výše škody<i style="color:#fe6b60">*</i></label>
+                                <input asp-for="InsuredEventValue" class="form-control" />
+                                <span asp-validation-for="InsuredEventValue" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-auto">
+                                <label asp-for="InsuranceCurrency" class="control-label fw-bold text-secondary">Měna<i style="color:#fe6b60">*</i></label>
+                                    <select asp-for="InsuranceCurrency" class="form-control" asp-items="@Html.GetEnumSelectList<InsuranceCurrency>()">
+                                        <option selected="selected" value="">--Vybrat--</option>
+                                    </select>
+                                <span asp-validation-for="InsuranceCurrency" class="text-danger"></span>
+                            </div>
                         </div>
                         <div class="col-md-12">
-                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Předmět události</label>
+                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Předmět události<i style="color:#fe6b60">*</i></label>
                             <input asp-for="ObjectOfInsuredEvent" class="form-control" />
                             <span asp-validation-for="ObjectOfInsuredEvent" class="text-danger"></span>
                         </div>
@@ -56,17 +66,26 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="UserInsuredEventId" />
                         <div class="form-group">
-                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události</label>
+                            <label asp-for="InsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události<i style="color:#fe6b60">*</i></label>
                             <select asp-for="InsuredEventName" class="form-control" asp-items="ViewBag.MainInsuredEvent" disabled></select>
                             <span asp-validation-for="InsuredEventName" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Výše škody</label>
-                            <input asp-for="InsuredEventValue" class="form-control" readonly />
-                            <span asp-validation-for="InsuredEventValue" class="text-danger"></span>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label asp-for="InsuredEventValue" class="control-label fw-bold text-secondary">Výše škody<i style="color:#fe6b60">*</i></label>
+                                <input asp-for="InsuredEventValue" class="form-control" readonly />
+                                <span asp-validation-for="InsuredEventValue" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-auto">
+                                <label asp-for="InsuranceCurrency" class="control-label fw-bold text-secondary">Měna<i style="color:#fe6b60">*</i></label>
+                                <select asp-for="InsuranceCurrency" class="form-control" asp-items="@Html.GetEnumSelectList<InsuranceCurrency>()" disabled>
+                                    <option selected="selected" value="">--Vybrat--</option>
+                                </select>
+                                <span asp-validation-for="InsuranceCurrency" class="text-danger"></span>
+                            </div>
                         </div>
                         <div class="col-md-12">
-                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Předmět události</label>
+                            <label asp-for="ObjectOfInsuredEvent" class="control-label fw-bold text-secondary">Předmět události<i style="color:#fe6b60">*</i></label>
                             <input asp-for="ObjectOfInsuredEvent" class="form-control" readonly />
                             <span asp-validation-for="ObjectOfInsuredEvent" class="text-danger"></span>
                         </div>

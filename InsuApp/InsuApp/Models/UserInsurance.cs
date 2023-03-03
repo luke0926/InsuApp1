@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DocuSign.eSign.Model;
+using InsuApp1.Data.Enum;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace InsuApp1.Models
@@ -19,5 +21,7 @@ namespace InsuApp1.Models
         public DateTime? InsuranceValidTo { get; set; }
         public User? UserUserInsurance { get; set; }
         public string? UserUserInsuranceName { get; set; }
+        [Required(ErrorMessage = "Povinný údaj")]
+        public InsuranceCurrency? InsuranceCurrency { get; set; }
     }
 }

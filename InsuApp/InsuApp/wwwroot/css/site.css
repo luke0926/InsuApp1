@@ -61,8 +61,32 @@ a {
     border-color: #1861ac;
 }
 
-.border-top {
-    border-top: 1px solid #e5e5e5;
+.navbar ul {
+    list-style: none;
+}
+
+.navbar ul li {
+    display: inline-block;
+    padding: 0 7px;
+    position: relative;
+}
+
+.navbar ul li:not(:last-child)::after {
+    content: "";
+    border: 1px solid #e2e2e2;
+    border-width: 1px 1px 0 0;
+    position: absolute;
+    right: -3px;
+    top: 0;
+    height: 100%;
+}
+
+.navbar-nav {
+    display: inline-block !important;
+}
+
+.nav-link {
+    padding: 0px !important;
 }
 
 .border-bottom {

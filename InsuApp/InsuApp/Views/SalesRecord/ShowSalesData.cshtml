@@ -53,7 +53,7 @@
                     var _chartLabels=_data[0];
                     var _chartData=_data[1];
 
-                    var barColor=["red","green","blue","orange","brown","purple"];
+                    var barColor = ["rgba(54, 162, 235, 0.5)", "rgba(248,187,208,0.5)", "rgba(29,233,182,0.5)", "rgba(189,189,189,0.5)", "rgba(255,229,127,0.5)", "rgba(225,190,231,0.5)"];
 
                     new Chart("myChart",
                     {
@@ -63,7 +63,8 @@
                             labels: _chartLabels,
                             datasets : [{
                                 backgroundColor: barColor,
-                                data: _chartData
+                                data: _chartData,
+                                label: 'Vývoj ceny pojištění',
                             }]
                         }
                     });

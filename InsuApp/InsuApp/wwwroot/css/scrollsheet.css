@@ -128,14 +128,14 @@ i.fas.fa-bars.fa-ml:hover{
     list-style: none;
     float: left;
     margin: 10px;
-    width: 125px;
-    height: 125px;
-    line-height: 125px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
     text-align: center;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    font-size: 60px;
+    font-size: 50px;
     z-index: 1;
     transform: rotate(45deg);
 }
@@ -169,7 +169,13 @@ i.fas.fa-bars.fa-ml:hover{
     top: 0;
 }
 
-.ul .li .fa{
+.ul .li .fa {
+    color: #f2f1f1;
+    transform: rotate(-45deg);
+    text-shadow: 0 3px 0 rgba(0,0,0,.5);
+}
+
+.ul .li .fas {
     color: #f2f1f1;
     transform: rotate(-45deg);
     text-shadow: 0 3px 0 rgba(0,0,0,.5);
@@ -184,3 +190,14 @@ i.fas.fa-bars.fa-ml:hover{
 .ul .li:nth-child(2):after {
     background: #d81b60;
 }
+
+.ul .li:nth-child(3):before,
+.ul .li:nth-child(3):after {
+    background: #29cacf;
+}
+
+.ul .li:nth-child(4):before,
+.ul .li:nth-child(4):after {
+    background: #7ae697;
+}
+

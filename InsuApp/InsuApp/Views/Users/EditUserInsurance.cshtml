@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-md-auto">
                                 <label asp-for="InsuranceCurrency" class="control-label fw-bold text-secondary">Měna<i style="color:#fe6b60">*</i></label>
-                                    <select asp-for="InsuranceCurrency" class="form-control" asp-items="@Html.GetEnumSelectList<InsuranceCurrency>()">
+                                <select asp-for="InsuranceCurrency" class="form-control" asp-items="@Html.GetEnumSelectList<InsuranceCurrency>()">
                                         <option selected="selected" value="">--Vybrat--</option>
                                     </select>
                                 <span asp-validation-for="InsuranceCurrency" class="text-danger"></span>

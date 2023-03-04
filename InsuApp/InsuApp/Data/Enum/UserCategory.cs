@@ -5,8 +5,4 @@
         Pojištěněc = 1,
         Pojistník = 2
     }
-
-
-
-
 }

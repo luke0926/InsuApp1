@@ -188,16 +188,16 @@ i.fas.fa-bars.fa-ml:hover{
 
 .ul .li:nth-child(2):before,
 .ul .li:nth-child(2):after {
-    background: #d81b60;
+    background: #fe6b60;
 }
 
 .ul .li:nth-child(3):before,
 .ul .li:nth-child(3):after {
-    background: #29cacf;
+    background: #fe6b60;
 }
 
 .ul .li:nth-child(4):before,
 .ul .li:nth-child(4):after {
-    background: #7ae697;
+    background: #fe6b60;
 }
 

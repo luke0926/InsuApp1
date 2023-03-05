@@ -42,12 +42,12 @@
                         <span asp-validation-for="InsuranceName" class="text-danger"></span>-->
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="form-group col-md-8">
                             <label asp-for="InsuranceValue" class="control-label fw-bold text-secondary">Výše pojištění<i style="color:#fe6b60">*</i></label>
                             <input asp-for="InsuranceValue" class="form-control" />
                             <span asp-validation-for="InsuranceValue" class="text-danger"></span>
                         </div>
-                        <div class="col-md-auto">
+                        <div class="form-group col-md-4">
                             <label asp-for="InsuranceCurrency" class="control-label fw-bold text-secondary">Měna<i style="color:#fe6b60">*</i></label>
                                 <select asp-for="InsuranceCurrency" class="form-control" asp-items="@Html.GetEnumSelectList<InsuranceCurrency>()">
                                     <option selected="selected" value="">--Vybrat--</option>
@@ -55,17 +55,17 @@
                             <span asp-validation-for="InsuranceCurrency" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="form-group col-md-12">
                         <label asp-for="ObjectOfInsurane" class="control-label fw-bold text-secondary">Předmět pojištění<i style="color:#fe6b60">*</i></label>
                         <input asp-for="ObjectOfInsurane" class="form-control" />
                         <span asp-validation-for="ObjectOfInsurane" class="text-danger"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="form-group col-md-6">
                         <label asp-for="InsuranceValidFrom" class="control-label fw-bold text-secondary">Platnost od</label>
                         <input asp-for="InsuranceValidFrom" class="form-control" />
                         <span asp-validation-for="InsuranceValidFrom" class="text-danger"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="form-group col-md-6">
                         <label asp-for="InsuranceValidTo" class="control-label fw-bold text-secondary">Platnost do</label>
                         <input asp-for="InsuranceValidTo" class="form-control" />
                         <span asp-validation-for="InsuranceValidTo" class="text-danger"></span>

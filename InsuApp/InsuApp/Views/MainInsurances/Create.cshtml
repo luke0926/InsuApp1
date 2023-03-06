@@ -16,7 +16,7 @@
                 <form asp-action="Create">
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
                     <div class="form-group">
-                        <label asp-for="MainInsuranceName" class="control-label fw-bold text-secondary">Název pojištění</label>
+                        <label asp-for="MainInsuranceName" class="control-label fw-bold text-secondary">Název pojištění<i style="color:#fe6b60">*</i></label>
                         <input asp-for="MainInsuranceName" class="form-control" />
                         <span asp-validation-for="MainInsuranceName" class="text-danger"></span>
                     </div>

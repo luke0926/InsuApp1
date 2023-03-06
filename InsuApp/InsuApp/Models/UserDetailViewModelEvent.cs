@@ -26,6 +26,7 @@ namespace InsuApp1.Models
         [Key]
         public int UserDetailEventId { get; set; }
         public UserCategory? UserCategory { get; set; }
-        public InsuranceCurrency? InsuranceCurrency { get; set; }
+		[Required(ErrorMessage = "Povinný údaj")]
+		public InsuranceCurrency? InsuranceCurrency { get; set; }
     }
 }

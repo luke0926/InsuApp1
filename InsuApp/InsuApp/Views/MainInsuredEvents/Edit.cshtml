@@ -18,7 +18,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <input type="hidden" asp-for="@Model.MainInsuredEventId" />
-                        <label asp-for="MainInsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události</label>
+                        <label asp-for="MainInsuredEventName" class="control-label fw-bold text-secondary">Název pojistné události<i style="color:#fe6b60">*</i></label>
                         <input asp-for="MainInsuredEventName" class="form-control" />
                         <span asp-validation-for="MainInsuredEventName" class="text-danger"></span>
                     </div>

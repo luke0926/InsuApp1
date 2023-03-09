@@ -1,5 +1,8 @@
 ﻿using InsuApp1.Data;
+using InsuApp1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections;
 
 namespace InsuApp1.Controllers
 {
@@ -17,21 +20,33 @@ namespace InsuApp1.Controllers
             return View();
         }
 
+
         public IActionResult ShowSalesData()
         {
             return View();
         }
 
+
         [HttpPost]
         public List<object> GetSalesData()
         {
+
+            List<ChartValue> chartValue = _context.UserInsurance
+                .GroupBy(s => s.InsuranceName)
+                .Select(valueByInsurance => new ChartValue
+                {
+                    UserInsuranceName = valueByInsurance.Key,
+                    ChartValueTotal = valueByInsurance.Sum(s => s.InsuranceValue)
+                }).ToList();
+
             List<object> data = new List<object>();
 
-            List<string?> labels = _context.UserInsurance.Select(p => p.InsuranceName).ToList();
+            List<string?> labels = chartValue.Select(s => s.UserInsuranceName).ToList();
 
             data.Add(labels);
 
-            List<int?> insuranceValue = _context.UserInsurance.Select(p => p.InsuranceValue).ToList();
+            List<int?> insuranceValue = chartValue.Select(s => s.ChartValueTotal).ToList();
+
             data.Add(insuranceValue);
 
             return data;

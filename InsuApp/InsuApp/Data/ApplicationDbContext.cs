@@ -16,6 +16,7 @@ namespace InsuApp1.Data
         public DbSet<InsuApp1.Models.MainInsuredEvent> MainInsuredEvent { get; set; } = default!;
         public DbSet<InsuApp1.Models.UserInsuredEvent> UserInsuredEvent { get; set; } = default!;
         public DbSet<InsuApp1.Models.UserDetailViewModelEvent> UserDetailViewModelEvent { get; set; } = default!;
+        public DbSet<InsuApp1.Models.ChartValue> ChartValue { get; set; } = default!;
 
 
 

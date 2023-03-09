@@ -132,9 +132,15 @@
     background-color: rgba(241,248,233,1.0);
 }
 
+.form-select:focus {
+    border-color: #fe6b60 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255,138,128,0.5);
+}
+
+
 .form-control:focus {
-    border-color: #d81b60 !important;
-    box-shadow: 0 0 0 0.2rem rgba(252,228,236,1.0);
+    border-color: #fe6b60 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255,205,210,0.5);
 }
 
 .btn:focus, .btn:active {

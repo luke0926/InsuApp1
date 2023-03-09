@@ -88,14 +88,14 @@ table {
 }
 
 .form-select:focus {
-    border-color: #d81b60 !important;
-    box-shadow: 0 0 0 0.2rem rgba(252,228,236,1.0);
+    border-color: #fe6b60 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255,205,210,0.5);
 }
 
 
 .form-control:focus {
-    border-color: #d81b60 !important;
-    box-shadow: 0 0 0 0.2rem rgba(252,228,236,1.0);
+    border-color: #fe6b60 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255,205,210,0.5);
 }
 
 .btn:focus, .btn:active {
@@ -104,13 +104,13 @@ table {
 }
 
 input:active[id="cb1"], input:focus[id="cb1"] {
-    box-shadow: 0 0 0 0.2rem rgba(252,228,236,1.0) !important;
-    border-color: #d81b60 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255,205,210,0.5) !important;
+    border-color: #fe6b60 !important;
 }
 
 .form-check-input:checked {
-    background-color: #d81b60 !important;
-    border-color: #d81b60 !important;
+    background-color: #fe6b60 !important;
+    border-color: #fe6b60 !important;
     
 }
 
@@ -128,14 +128,14 @@ i.fas.fa-bars.fa-ml:hover{
     list-style: none;
     float: left;
     margin: 10px;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
     text-align: center;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    font-size: 50px;
+    font-size: 35px;
     z-index: 1;
     transform: rotate(45deg);
 }

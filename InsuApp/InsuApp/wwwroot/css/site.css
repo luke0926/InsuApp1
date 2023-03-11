@@ -109,3 +109,8 @@ button.accept-policy {
     white-space: nowrap;
     line-height: 60px;
 }
+
+.dropdown-menu {
+    --bs-dropdown-bg: #f00;
+    --bs-dropdown-link-active-bg: #f00;
+}

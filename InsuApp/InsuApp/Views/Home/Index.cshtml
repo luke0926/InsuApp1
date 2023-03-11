@@ -5,23 +5,23 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 <link rel="stylesheet" href="~/css/scrollsheet.css" runat="server" type="text/css" asp-append-version="true" />
 
-<div id="modal-placeholder"></div>
-
 <!-- background-image: url('/images/hearthblackandwhite.png'); background-repeat:no-repeat; background-position:50% 50%; background-attachment:fixed; -->
 
-<body>
-    <div class="mt-5 text-center text-secondary">
-        <h1 class="display-4">Evidence pojištění InsuApp</h1>
-        <hr />
-        @if (User.IsInRole("admin"))
-        {
-            <div class="d-flex justify-content-center mt-3 mb-3">
+<div id="modal-placeholder"></div>
+
+@if (User.IsInRole("admin"))
+{
+    <body>
+        <div class="mt-5 text-center text-secondary">
+            <h1 class="display-4">Evidence pojištění</h1>
+            <hr />
+            <div class="d-flex justify-content-center mt-5">
                 <div class="text-center font-monospace">
                     <b>Registrace</b>
                     <ul class="ul px-3">
                         <li class="list-unstyled"></li>
                         <li class="li"><a asp-area="Identity" asp-page="/Account/Register"><i class="fa fa-heartbeat" aria-hidden="true"></i></a></li>
-                    </ul>  
+                    </ul>
                 </div>
                 <div class="text-center font-monospace">
                     <b>O aplikaci</b>
@@ -41,10 +41,15 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </body> 
+}
+else
+{
+    <body class="bg-secondary">
+        <div class="mt-5 text-center text-white">
+            <h1 class="display-4">Evidence pojištění</h1>
             <hr />
-        }
-        else
-        {
             <div class="d-flex justify-content-center mt-3 mb-3">
                 <div class="text-center font-monospace">
                     <b>Přihlásit se</b>
@@ -69,8 +74,8 @@
                     </ul>
                 </div>
             </div>
-            <hr />
-        }
-    </div>
-</body>
- 
+        </div>
+    </body>
+}
+
+

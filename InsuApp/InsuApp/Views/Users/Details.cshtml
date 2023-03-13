@@ -23,9 +23,9 @@
 
 <div id="modal-placeholder"></div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            <div class="col-sm-3">
+            <div class="col-sm-auto col-md-auto col-lg-4">
                 <div class="card">
                     <div class="card-header bg-secondary bg-gradient">
                         @if (User.IsInRole("admin"))
@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-7">
+        <div class="col-sm-auto col-md-auto col-lg-7">
                 <div class="card d-flex justify-content-center">
                     <div class="card-header bg-secondary bg-gradient text-white-50">Přehled pojištění</div>
                         <div class="card-body text-md-center justify-content-center">
@@ -109,7 +109,7 @@
                                                             @Html.DisplayFor(modelItem => item.InsuranceValue)
                                                             @Html.DisplayFor(modelItem => item.InsuranceCurrency)
                                                         </td>
-                                                        <td class="col-sm-4 px-3">
+                                                        <td class="col-sm-4">
                                                             <div class="d-flex justify-content-end">
                                                                 <button type="button" class="px-1" style="background-color:transparent; border:none" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"EditUserInsurance/{item.UserInsuranceId}")"><i class="fas fa-user-edit" style="color:dimgrey"></i></button>
                                                                 <!--<a href="/Users/EditUserInsurance/@item.UserInsuranceId" class="btn" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye" style="color:grey"></i></a>-->
@@ -171,14 +171,14 @@
                                                 @foreach (UserInsuredEvent item in Model.UserInsuredEvents)
                                                 {
                                                     <tr style="height: 40px; overflow:auto;">
-                                                        <td class="col-sm-4">
+                                                        <td class="col-sm-auto col-md-auto col-lg-auto">
                                                             @Html.DisplayFor(modelItem => item.InsuredEventName)
                                                         </td>
-                                                        <td class="col-sm-4">
+                                                    <td class="col-sm-auto col-md-auto col-lg-auto">
                                                             @Html.DisplayFor(modelItem => item.InsuredEventValue)
                                                             @Html.DisplayFor(modelItem => item.InsuranceCurrency)
                                                         </td>
-                                                        <td class="col-sm-4 px-3">
+                                                    <td class="col-sm-auto col-md-auto col-lg-auto">
                                                             <div class="d-flex justify-content-end">
                                                                 <button type="button" class="px-1" style="background-color:transparent; border:none" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"EditUserInsuredEvent/{item.UserInsuredEventId}")"><i class="fas fa-user-edit" style="color:dimgrey"></i></button>
                                                                 <!--<a href="/Users/EditUserInsurance/@item.UserInsuredEventId" class="btn" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye" style="color:grey"></i></a>-->

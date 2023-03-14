@@ -9,12 +9,72 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
 
-<div class="row justify-content-center mt-5">
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="/images/regPicTree.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        </div>
+        
+        <div class="col-lg-6">
+            <h3 class="login-heading mb-4">Vítej zpět!</h3>
+            <form id="account" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.UserName" type="userName" autocomplete="username" class="form-control" aria-required="true" id="floatingInput" placeholder="uživatelské jméno">
+                    <label asp-for="Input.UserName" class="form-label">Uživatelské jméno</label>
+                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" type="password" autocomplete="current-password" class="form-control" aria-required="true" id="floatingPassword" placeholder="heslo">
+                    <label asp-for="Input.Password" class="form-label">Heslo</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-3 text-center">
+                    <label asp-for="Input.RememberMe" class="form-label">
+                        <input class="form-check-input" asp-for="Input.RememberMe" type="checkbox" id="cb1" />
+                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
+                </div>
+
+                <div class="d-grid">
+                    <button class="btn btn-lg btn-outline-secondary btn-login text-uppercase fw-bold mb-2" type="submit">Přihlásit se</button>
+                    <div class="text-center">
+                        <a class="text-secondary" id="forgot-password" asp-page="./ForgotPassword">Zapomenuté heslo?</a>
+                    </div>
+                </div>
+
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="row justify-content-center mt-5">
     <div class="col-lg-6">
         <div class="card border-secondary">
             <div class="card-header bg-secondary bg-gradient d-flex justify-content-between">
-                <a href="/Home/Index" class="btn-sm btn-close" arial-label="Close"></a>
-                <!--style="background:rgb(222,226,230)"-->
+                <a href="/Home/Index" class="btn-sm btn-close" arial-label="Close"></a>-->
+<!--style="background:rgb(222,226,230)"
                 <div class="dropdown btn-group">
                     <a class="text-black-50" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-bars fa-ml"></i>
@@ -51,7 +111,7 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <!--<button id="login-submit" type="submit" class="w-100 mb-3 btn btn-sm btn-outline-secondary">Sign In</button>-->
+                                        <button id="login-submit" type="submit" class="w-100 mb-3 btn btn-sm btn-outline-secondary">Sign In</button>
                                         <button type="submit" class="w-100 mb-3 btn btn-sm btn-outline-secondary">Přihlásit se</button>
                                     </div>
                                 </form>
@@ -62,10 +122,4 @@
             </div>
         </div>
     </div>
-</div>
-
-
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+</div>-->

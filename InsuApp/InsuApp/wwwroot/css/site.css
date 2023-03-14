@@ -85,8 +85,24 @@ a {
     display: inline-block !important;
 }
 
+.navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: white !important;
+    border: none !important;
+    transition: box-shadow .15s ease-in-out;
+    color: black;
+}
+
 .nav-link {
     padding: 0px !important;
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 0 !important;
+    align-items: center;
 }
 
 .border-bottom {

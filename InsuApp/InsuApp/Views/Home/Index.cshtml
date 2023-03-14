@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 <link rel="stylesheet" href="~/css/scrollsheet.css" runat="server" type="text/css" asp-append-version="true" />
 
+
+
 <!-- background-image: url('/images/hearthblackandwhite.png'); background-repeat:no-repeat; background-position:50% 50%; background-attachment:fixed; -->
 
 <div id="modal-placeholder"></div>
@@ -12,70 +14,40 @@
 @if (User.IsInRole("admin"))
 {
     <body>
-        <div class="mt-5 text-center text-secondary">
-            <h1 class="display-4">Evidence pojištění</h1>
-            <hr />
-            <div class="d-flex justify-content-center mt-3 flex-wrap">
-                <div class="text-center font-monospace">
-                    <b>Registrace</b>
-                    <ul class="ul px-3">
-                        <li class="list-unstyled"></li>
-                        <li class="li"><a asp-area="Identity" asp-page="/Account/Register"><i class="fa fa-heartbeat" aria-hidden="true"></i></a></li>
-                    </ul>
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="/images/regPicTree.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
                 </div>
-                <div class="text-center font-monospace">
-                    <b>O aplikaci</b>
-                    <ul class="ul px-3">
-                        <li class="list-unstyled"></li>
-                        <li class="list-unstyled"></li>
-                        <li class="li"><a asp-area="Identity" asp-page=""><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-                <div class="text-center font-monospace">
-                    <b>Statistiky</b>
-                    <ul class="ul px-3">
-                        <li class="list-unstyled"></li>
-                        <li class="list-unstyled"></li>
-                        <li class="list-unstyled"></li>
-                        <li class="li"><a asp-controller="SalesRecord" asp-action="ShowSalesData"><i class="fas fa-chart-line"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </body> 
-}
-else
-{
-    <body>
-        <div class="mt-5 text-center text-secondary">
-            <h1 class="display-4">Evidence pojištění</h1>
-            <hr />
-            <div class="d-flex justify-content-center mt-3 d-flex flex-wrap">
-                <div class="text-center font-monospace">
-                    <b>Přihlásit se</b>
-                    <ul class="ul px-3">
-                        <li class="li"><a asp-area="Identity" asp-page="/Account/Login"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        <li class="list-unstyled"></li>
-                    </ul>
-                </div>
-                <div class="text-center font-monospace">
-                    <b>Registrace</b>
-                    <ul class="ul px-3">
-                        <li class="list-unstyled"></li>
-                        <li class="li"><a asp-area="Identity" asp-page="/Account/Register"><i class="fa fa-heartbeat" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-                <div class="text-center font-monospace">
-                    <b>O aplikaci</b>
-                    <ul class="ul px-3">
-                        <li class="list-unstyled"></li>
-                        <li class="list-unstyled"></li>
-                        <li class="li"><a asp-area="Identity" asp-page=""><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                    </ul>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">InsuApp</h1>
+                    <p class="lead">Evidence pojištění a pojistných událostí.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a type="button" class="btn btn-secondary btn-lg px-4" asp-area="Identity" asp-page="/Account/Register">Registrovat se</a>
+                        <a type="button" class="btn btn-outline-secondary btn-lg px-4 me-md-2" asp-controller="SalesRecord" asp-action="ShowSalesData">Statistiky</a>
+                    </div>
                 </div>
             </div>
         </div>
     </body>
 }
-
-
+else
+{
+    <body>
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="/images/regPicTree.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">InsuApp</h1>
+                    <p class="lead">Evidence pojištění a pojistných událostí.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a type="button" class="btn btn-secondary btn-lg px-4 me-md-2" asp-area="Identity" asp-page="/Account/Login">Přihlásit se</a>
+                        <a type="button" class="btn btn-outline-secondary btn-lg px-4" asp-area="Identity" asp-page="/Account/Register">Registrovat se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+}

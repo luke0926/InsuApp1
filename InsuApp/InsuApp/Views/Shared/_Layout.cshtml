@@ -52,14 +52,11 @@
     else if (User.IsInRole("user"))
     {
         <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-secondary mb-3">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent mb-3 shadow">
                 <div class="container-fluid">
-
-
-                    <a class="navbar-brand">
+                    <a class="navbar-brand text-black fw-bold">
                         <img src="@Url.Content("~/images/hearth.png")" class="d-inline-block align-top" width="32" height="32" alt="hearth logo"> InsuApp
                     </a>
-
                     <partial name="_LoginPartial" />
                 </div>
             </nav>

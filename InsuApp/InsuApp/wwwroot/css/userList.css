@@ -4,7 +4,7 @@
     max-width: 50px;
     float: left;
     margin-left: 5px;
-    margin-right: 15px;
+    
 }
 
 .user-list tbody td .user-link {
@@ -47,8 +47,8 @@
         content: '';
         position: absolute;
         border-radius: 8px 0 0 8px;
-        background-color: #7d8083;
-        width: 4.5px;
+        background-color: #fe6b60;
+        width: 6px;
         height: 100%;
         left: 0px;
         top: 0px;
@@ -86,8 +86,8 @@
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
+    background-color: #fe6b60;
+    border-color: #fe6b60;
 }
 .page-item, .page-link {
     height: 2rem;
@@ -103,6 +103,7 @@
     order: -1;
     flex: 1;
 }
+
 
 .badge {
     display: inline-block;
@@ -146,4 +147,8 @@
 .btn:focus, .btn:active {
     outline: none !important;
     box-shadow: none !important;
+}
+
+.btn-group-lg > .btn, .btn-lg:hover {
+    background-color: #d1584f !important;
 }

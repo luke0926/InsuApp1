@@ -27,8 +27,8 @@
 	</div>
 }
 
-<div class="container mt-4 d-flex justify-content-center">
-	<button type="button" class="btn btn-secondary" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action("Create")"><i class="fa fa-user-plus fa text-white-50 px-3" aria-hidden="true"></i></button>
+<div class="d-grid gap-2 col-4 mx-auto mt-5">
+	<button type="button" style="background-color:#fe6b60" class="btn btn-lg text-white" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action("Create")">Nový klient</button>
 </div>
 
 <div class="container mt-4">
@@ -39,6 +39,7 @@
 					<table class="table table-curved user-list">
 						<thead>
 							<tr>
+								<th><span class="text-secondary fw-bold"></span></th>
 								<th><span class="text-secondary fw-bold">Jméno</span></th>
                                 
 								<th><span class="text-secondary fw-bold">Status</span></th>
@@ -52,10 +53,12 @@
 								<tr class="tr">
 									<td>
 										<img src="/images/blankProfilePic.png" alt="">
+									</td>
+									<td>
 										<h5 class="mb-0"><a>@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</a></h5>
-											<ul class="list-unstyled">
-											<li class="text-secondary"><i class="fas fa-map-marker-alt pr-1"></i> @Html.DisplayFor(modelItem => item.StreetAddress), @Html.DisplayFor(modelItem => item.City)</li>
-											</ul>
+										<ul class="list-unstyled">
+										<li class="text-secondary"><i class="fas fa-map-marker-alt pr-1"></i> @Html.DisplayFor(modelItem => item.StreetAddress), @Html.DisplayFor(modelItem => item.City)</li>
+										</ul>
 									</td>
 									
 									@if(item.UserCategory == UserCategory.Pojištěněc)

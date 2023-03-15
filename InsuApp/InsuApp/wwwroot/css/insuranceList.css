@@ -78,3 +78,7 @@
     background: -webkit-linear-gradient( 45deg, #ffdf40, #ff8359) !important;
     background: linear-gradient( 45deg, #ffdf40, #ff8359) !important;
 }
+
+.btn-group-lg > .btn, .btn-lg:hover {
+    background-color: #d1584f !important;
+}

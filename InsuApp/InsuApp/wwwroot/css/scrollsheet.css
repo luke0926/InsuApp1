@@ -21,7 +21,7 @@ table {
         position: -webkit-sticky;
         position: sticky;
         top: 0;
-        background-color: rgb(222,226,230);
+        background-color: #fff;
     }
 
 
@@ -122,6 +122,11 @@ i.fas.fa-sign-out-alt:hover {
 i.fas.fa-bars.fa-ml:hover{
     color: #211f1f;
     
+}
+
+a.nav-link:hover {
+    color: #d81b60 !important;
+    transition: color 0.5s ease;
 }
 
 .ul .li{
@@ -243,4 +248,8 @@ i.fas.fa-bars.fa-ml:hover{
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
+}
+
+.btn1:hover  {
+    background-color: #d1584f !important;
 }

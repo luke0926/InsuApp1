@@ -33,9 +33,9 @@
 }
 
 .bg-gradient-scooter {
-    background: #bccfcd;
-    background: -webkit-linear-gradient( 45deg, #bccfcd, #6c6d75) !important;
-    background: linear-gradient( 45deg, #bccfcd, #6c6d75) !important;
+    background: #fe6b60;
+    background: -webkit-linear-gradient( 45deg, #fe7373, #fe6b60) !important;
+    background: linear-gradient( 45deg, #dc3673, #fe6b60) !important;
 }
 
 .widgets-icons-2 {

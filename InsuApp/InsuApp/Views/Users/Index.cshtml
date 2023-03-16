@@ -20,8 +20,8 @@
 {
 	
 	<div class="container mt-3 d-flex justify-content-center">
-		<div class="alert alert-success p-1" style="display:inline-block;">
-			<strong><i class="fa fa-check-circle d-lg-table-row" aria-hidden="true"></i></strong>  @TempData["AlertMessage"]
+		<div class="alert alert-success p-1 col-lg-6 text-center" style="display:inline-block;">
+			@TempData["AlertMessage"]
 			<!--<button type="button" style="background-color:transparent; border:none;" class="close" data-bs-dismiss="alert"><i class="fa fa-times alert-success d-block justify-content-end" aria-hidden="true"></i></button>-->
 		</div>
 	</div>
@@ -33,7 +33,7 @@
 
 <div class="container mt-4">
 	<div class="row justify-content-center">
-		<div class="col-lg-10">
+		<div class="col-lg-8">
 			<div class="main-box clearfix">
 				<div class="table-responsive">
 					<table class="table table-curved user-list">
@@ -41,7 +41,6 @@
 							<tr>
 								<th><span class="text-secondary fw-bold"></span></th>
 								<th><span class="text-secondary fw-bold">Jméno</span></th>
-                                
 								<th><span class="text-secondary fw-bold">Status</span></th>
 								<th><span class="text-secondary fw-bold">Email</span></th>
 								<th class="text-center"><span class="text-secondary fw-bold">Akce</span></th>
@@ -77,7 +76,9 @@
 										<a><i class="fa fa-envelope" aria-hidden="true" style="color:gray"></i></a>
 										<a>@Html.DisplayFor(modelItem => item.EmailAddress)</a>
 									</td>
-									<td>
+
+
+									<td class="tdbreak">
 										<div class="d-flex justify-content-center">
 											<a href="/Users/Details/@item.UserId" class="btn px-1" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-id-card" style="color:dimgrey"></i></a>
 											<button type="button" style="background-color:transparent; border:none" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"Delete/{item.UserId}")"><i class="far fa-trash-alt" style="color:#d81b60"></i></button>
@@ -85,6 +86,7 @@
 										</div>
 									</td>
 								</tr>
+								
 							}
 						</tbody>
 					</table>

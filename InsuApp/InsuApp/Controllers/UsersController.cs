@@ -107,7 +107,7 @@ namespace InsuApp1.Controllers
                     userInsuredEvent.UserUserInsuredEvent = user;
                     _context.UserInsuredEvent.Add(userInsuredEvent);
                     await _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Insured Event Created Successfully!";
+                    TempData["AlertMessage"] = "Pojistná událost úspěšně uložena!";
 
                     viewModelEvent = await GetUserDetailViewModelEvent(user);
                     viewModelEvent.MainInsuEventList = new SelectList(_context.MainInsuredEvent, "MainInsuredEventName", "MainInsuredEventName");
@@ -178,7 +178,7 @@ namespace InsuApp1.Controllers
                     userInsurance.UserUserInsurance = user;
                     _context.UserInsurance.Add(userInsurance);
                     await _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Insurance Created Successfully!";
+                    TempData["AlertMessage"] = "Pojištění úspěšně uloženo!";
 
                     viewModel = await GetUserDetailViewModelFromUser(user);
                     viewModel.MainInsuList = new SelectList(_context.MainInsurance, "MainInsuranceName", "MainInsuranceName");
@@ -239,7 +239,7 @@ namespace InsuApp1.Controllers
                     {
                         _context.Add(user);
                         _context.SaveChangesAsync();
-                        TempData["AlertMessage"] = "Client Created Successfully!";
+                        TempData["AlertMessage"] = "Klient úspěšně založen!";
                     }
                     catch (DbUpdateConcurrencyException)
                     {
@@ -340,7 +340,7 @@ namespace InsuApp1.Controllers
                 {
                     _context.User.Update(user);
                     _context.SaveChanges();
-                    TempData["AlertMessage"] = "Client Updated Successfully!";
+                    TempData["AlertMessage"] = "Údaje úspěšně aktualizovány!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -405,7 +405,7 @@ namespace InsuApp1.Controllers
                 {
                     _context.Update(userInsuredEvent);
                     await _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Insured Event Updated Successfully!";
+                    TempData["AlertMessage"] = "Pojistná událost úspěšně aktualizována!";
                 }
                 catch
                 {
@@ -435,7 +435,7 @@ namespace InsuApp1.Controllers
                 {
                     _context.Update(userInsurance);
                     await _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Insurance Updated Successfully!";
+                    TempData["AlertMessage"] = "Pojištění úspěšně aktualizováno!";
                 }
                 catch
                 {
@@ -525,7 +525,7 @@ namespace InsuApp1.Controllers
             }
 
             await _context.SaveChangesAsync();
-            TempData["AlertMessage"] = "Client Account Deleted Successfully!";
+            TempData["AlertMessage"] = "Účet úspěšně odstraněn!";
 
             return PartialView("Delete", user);
         }
@@ -546,7 +546,7 @@ namespace InsuApp1.Controllers
             }
 
             await _context.SaveChangesAsync();
-            TempData["AlertMessage"] = "Insured Event Deleted Successfully!";
+            TempData["AlertMessage"] = "Pojistná událost úspěšně odstraněna!";
 
             return PartialView("DeleteUserInsuredEvent", userInsuredEvent);
         }
@@ -567,7 +567,7 @@ namespace InsuApp1.Controllers
             }
 
             await _context.SaveChangesAsync();
-            TempData["AlertMessage"] = "Insurance Deleted Successfully!";
+            TempData["AlertMessage"] = "Pojištění úspěšně odstraněno!";
 
             return PartialView("DeleteUserInsurance", userInsurance);
         }

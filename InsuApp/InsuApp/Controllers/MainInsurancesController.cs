@@ -61,7 +61,7 @@ namespace InsuApp1.Controllers
             {
                 _context.Add(mainInsurance);
                 await _context.SaveChangesAsync();
-                TempData["AlertMessage"] = "Insurance Created Successfully!";
+                TempData["AlertMessage"] = "Pojištění úspěšně založeno!";
 
                 return PartialView("Create", mainInsurance);
             }
@@ -102,7 +102,7 @@ namespace InsuApp1.Controllers
                 {
                     _context.Update(mainInsurance);
                     await _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Insurance Updated Successfully!";
+                    TempData["AlertMessage"] = "Pojištění úspěšně aktualizováno!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -154,7 +154,7 @@ namespace InsuApp1.Controllers
             }
 
             await _context.SaveChangesAsync();
-            TempData["AlertMessage"] = "Insurance Deleted Successfully!";
+            TempData["AlertMessage"] = "Pojištění úspěšně odstraněno!";
 
             return PartialView("Delete", mainInsurance);
         }

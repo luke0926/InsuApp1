@@ -63,7 +63,7 @@ namespace InsuApp1.Controllers
                 {
                     _context.Add(mainInsuredEvent);
                     await _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Insured Event Created Successfully!";
+                    TempData["AlertMessage"] = "Pojistná údálost úspěšně založena!";
 
                 }
                 catch (DbUpdateConcurrencyException)
@@ -117,7 +117,7 @@ namespace InsuApp1.Controllers
                 {
                     _context.Update(mainInsuredEvent);
                     await _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Insured Event Updated Successfully!";
+                    TempData["AlertMessage"] = "Pojistná údálost úspěšně aktualizována!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -169,7 +169,7 @@ namespace InsuApp1.Controllers
             }
 
             await _context.SaveChangesAsync();
-            TempData["AlertMessage"] = "Client Account Deleted Successfully!";
+            TempData["AlertMessage"] = "Pojistná událost úspěšně odstraněna!";
 
             return PartialView("Delete", mainInsuredEvent);
         }

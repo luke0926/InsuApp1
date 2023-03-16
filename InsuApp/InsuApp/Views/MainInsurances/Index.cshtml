@@ -16,8 +16,8 @@
 {
 
     <div class="container mt-3 d-flex justify-content-center">
-        <div class="alert alert-success p-1" style="display:inline-block;">
-            <strong><i class="fa fa-check-circle d-lg-table-row" aria-hidden="true"></i></strong>  @TempData["AlertMessage"]
+        <div class="alert alert-success p-1 col-lg-6 text-center" style="display:inline-block;">
+            @TempData["AlertMessage"]
             <!--<button type="button" style="background-color:transparent; border:none;" class="close" data-bs-dismiss="alert"><i class="fa fa-times alert-success d-block justify-content-end" aria-hidden="true"></i></button>-->
         </div>
     </div>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="container mt-5">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
         @foreach (var item in Model)
         {
             <div class="col">

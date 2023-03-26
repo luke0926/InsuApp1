@@ -76,15 +76,15 @@ namespace InsuApp1.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "Povinný údaj")]
             [Display(Name = "UserName")]
             public string UserName { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Povinný údaj")]
+            [EmailAddress(ErrorMessage = "Neplatný formát Email adresy.")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -92,10 +92,10 @@ namespace InsuApp1.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Povinný údaj")]
+            [StringLength(100, ErrorMessage = "{0} musí být dlouhé nejméně {2} až max. {1} znaků.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Heslo")]
             public string Password { get; set; }
 
             /// <summary>
@@ -103,8 +103,8 @@ namespace InsuApp1.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Potvrzení hesla")]
+            [Compare("Password", ErrorMessage = "Potvrzení hesla se neshoduje se zadaným heslem. ")]
             public string ConfirmPassword { get; set; }
         }
 

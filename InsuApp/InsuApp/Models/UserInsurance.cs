@@ -1,7 +1,7 @@
 ﻿using DocuSign.eSign.Model;
 using InsuApp1.Data.Enum;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InsuApp1.Models
 {

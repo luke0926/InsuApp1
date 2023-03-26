@@ -23,5 +23,6 @@ namespace InsuApp1.Models
         public string? UserUserInsuranceName { get; set; }
         [Required(ErrorMessage = "Povinný údaj")]
         public InsuranceCurrency? InsuranceCurrency { get; set; }
+        public MainInsurance? MainInsurance { get; set; }
     }
 }

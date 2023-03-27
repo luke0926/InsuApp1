@@ -10,7 +10,6 @@ using X.PagedList;
 
 namespace InsuApp1.Controllers
 {
-
     public class UsersController : Controller
     {
 
@@ -101,9 +100,17 @@ namespace InsuApp1.Controllers
 
                     if (user == null)
                     {
-                        return NotFound("Form saving error!");
+                        return NotFound("Event form saving error!");
                     }
 
+                    MainInsuredEvent insuredEvent = await _context.MainInsuredEvent.FirstOrDefaultAsync(m => m.MainInsuredEventName == viewModelEvent.MainInsuredEventName);
+
+                    if (insuredEvent == null)
+                    {
+                        return NotFound("Event form saving error!*");
+                    }
+
+                    userInsuredEvent.MainInsuredEvent = insuredEvent;
                     userInsuredEvent.UserUserInsuredEvent = user;
                     _context.UserInsuredEvent.Add(userInsuredEvent);
                     await _context.SaveChangesAsync();
@@ -168,6 +175,7 @@ namespace InsuApp1.Controllers
                     userInsurance.InsuranceValidFrom = viewModel.InsuranceValidFrom;
                     userInsurance.InsuranceValidTo = viewModel.InsuranceValidTo;
 
+
                     User user = await _context.User.FirstOrDefaultAsync(m => m.UserId == viewModel.UserDetailViewId);
 
                     if (user == null)
@@ -175,6 +183,14 @@ namespace InsuApp1.Controllers
                         return NotFound("Form saving error!");
                     }
 
+                    MainInsurance insurance = await _context.MainInsurance.FirstOrDefaultAsync(m => m.MainInsuranceName == viewModel.MainInsuranceName);
+
+                    if (insurance == null)
+                    {
+                        return NotFound("Form saving error!*");
+                    }
+
+                    userInsurance.MainInsurance = insurance;
                     userInsurance.UserUserInsurance = user;
                     _context.UserInsurance.Add(userInsurance);
                     await _context.SaveChangesAsync();
@@ -230,7 +246,7 @@ namespace InsuApp1.Controllers
                 var isUserNameExists = _context.User.Any(x => x.UserName == user.UserName);
                 if (isUserNameExists)
                 {
-                    ModelState.AddModelError("UserName", "User with this user name already exists");
+                    ModelState.AddModelError("UserName", "Uživatelské jméno již existuje!");
                     return PartialView("Create", user);
                 }
                 else

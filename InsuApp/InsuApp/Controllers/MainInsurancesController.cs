@@ -1,4 +1,5 @@
-﻿using InsuApp1.Data;
+﻿using DocuSign.eSign.Model;
+using InsuApp1.Data;
 using InsuApp1.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -59,11 +60,34 @@ namespace InsuApp1.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(mainInsurance);
-                await _context.SaveChangesAsync();
-                TempData["AlertMessage"] = "Pojištění úspěšně založeno!";
+                var isInsuranceNameExists = _context.MainInsurance.Any(x => x.MainInsuranceName == mainInsurance.MainInsuranceName);
+                if (isInsuranceNameExists)
+                {
+                    ModelState.AddModelError("MainInsuranceName", "Pojištění s tímto názvem již existuje!");
+                    return PartialView("Create", mainInsurance);
+                }
+                else
+                {
+                    try
+                    {
+                        _context.Add(mainInsurance);
+                        await _context.SaveChangesAsync();
+                        TempData["AlertMessage"] = "Pojištění úspěšně založeno!";
 
-                return PartialView("Create", mainInsurance);
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!MainInsuranceExists(mainInsurance.MainInsuranceId))
+                        {
+                            return NotFound("Insurance Creation Error!");
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return PartialView("Create", mainInsurance);
+                }
             }
             return PartialView("Create", mainInsurance);
         }

@@ -1,8 +1,10 @@
 ﻿using InsuApp1.Data;
 using InsuApp1.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
+using System.Data;
 
 namespace InsuApp1.Controllers
 {
@@ -15,12 +17,13 @@ namespace InsuApp1.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "admin")]
         public IActionResult Index()
         {
             return View();
         }
 
-
+        [Authorize(Roles = "admin")]
         public IActionResult ShowSalesData()
         {
             return View();
@@ -28,6 +31,7 @@ namespace InsuApp1.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public List<object> GetSalesData()
         {
 

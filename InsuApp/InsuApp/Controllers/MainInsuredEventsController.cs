@@ -1,4 +1,5 @@
-﻿using InsuApp1.Data;
+﻿using DocuSign.eSign.Model;
+using InsuApp1.Data;
 using InsuApp1.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -59,26 +60,34 @@ namespace InsuApp1.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                var isInsuredEventExists = _context.MainInsuredEvent.Any(x => x.MainInsuredEventName == mainInsuredEvent.MainInsuredEventName);
+                if (isInsuredEventExists)
                 {
-                    _context.Add(mainInsuredEvent);
-                    await _context.SaveChangesAsync();
-                    TempData["AlertMessage"] = "Pojistná údálost úspěšně založena!";
-
+                    ModelState.AddModelError("MainInsuredEventName", "Pojistná událost s tímto názvem již existuje!");
+                    return PartialView("Create", mainInsuredEvent);
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!MainInsuredEventExists(mainInsuredEvent.MainInsuredEventId))
+                    try
                     {
-                        return NotFound("Insured Event Creation Error!");
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                        _context.Add(mainInsuredEvent);
+                        await _context.SaveChangesAsync();
+                        TempData["AlertMessage"] = "Pojistná údálost úspěšně založena!";
 
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!MainInsuredEventExists(mainInsuredEvent.MainInsuredEventId))
+                        {
+                            return NotFound("Insured Event Creation Error!");
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return PartialView("Create", mainInsuredEvent);
                 }
-                return PartialView("Create", mainInsuredEvent);
             }
             return PartialView("Create", mainInsuredEvent);
         }

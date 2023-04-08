@@ -22,14 +22,20 @@ namespace InsuApp1.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// User Insurance Sales Data
+        /// </summary>
+        /// <returns>User Insurance Sales data View</returns>
         [Authorize(Roles = "admin")]
         public IActionResult ShowSalesData()
         {
             return View();
         }
 
-
+        /// <summary>
+        /// User Insurance Sales Data
+        /// </summary>
+        /// <returns>List of User Insurance by it's name and total value</returns>
         [HttpPost]
         [Authorize(Roles = "admin")]
         public List<object> GetSalesData()

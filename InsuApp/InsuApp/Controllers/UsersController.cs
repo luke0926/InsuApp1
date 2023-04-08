@@ -587,6 +587,7 @@ namespace InsuApp1.Controllers
 
             return PartialView("DeleteUserInsurance", userInsurance);
         }
+
         // User Detail ViewModel 
         private async Task<UserDetailViewModel> GetUserDetailViewModelFromUser(User user)
         {

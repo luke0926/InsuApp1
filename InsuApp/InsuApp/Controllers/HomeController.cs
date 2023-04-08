@@ -14,11 +14,19 @@ namespace InsuApp1.Controllers
         {
             _logger = logger;
         }
+        /// <summary>
+        /// Starting Page
+        /// </summary>
+        /// <returns>If user is Anonymous returns login/registration options, if in Admin role returns stats/registration options</returns>
         [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
+        /// <summary>
+        /// Welcome Page for User in Role
+        /// </summary>
+        /// <returns>Custom welcome message based on user role</returns>
         [Authorize(Roles = "admin, user")]
         public IActionResult WelcomePage()
         {

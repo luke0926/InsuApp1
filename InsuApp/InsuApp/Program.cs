@@ -100,8 +100,8 @@ app.MapControllerRoute(
     UserManager<IdentityUser> userManagement = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
     roleManagement.CreateAsync(new IdentityRole("admin")).Wait(); // Use "admin" or "user" to create a role.
-    /IdentityUser appUser = userManagement.FindByEmailAsync("admin@admin.com").Result; //Uncomment last two rows for admin e-mail assignment.
-    /userManagement.AddToRoleAsync(appUser, "admin").Wait();
+    //IdentityUser appUser = userManagement.FindByEmailAsync("admin@admin.com").Result; //Uncomment last two rows for admin e-mail assignment.
+    //userManagement.AddToRoleAsync(appUser, "admin").Wait();
 }*/
 
 app.Run();
